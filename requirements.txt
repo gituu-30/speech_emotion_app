@@ -1,5 +1,5 @@
-streamlit
-librosa
+streamlit==1.26.0
+tensorflow==2.11.0
 numpy
 scikit-learn
 matplotlib
