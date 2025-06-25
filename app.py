@@ -1,4 +1,3 @@
-
 import streamlit as st
 import numpy as np
 import librosa
@@ -12,13 +11,13 @@ st.markdown("Upload a `.wav` audio file and get the predicted emotion!")
 # Load model and label encoder
 @st.cache_resource
 def load_artifacts():
-    model = load_model("emotion_model_filtered_final.h5")
+    model = load_model("emotion_model_filtered_final.h5", compile=False)  # <- FIXED
     encoder = joblib.load("label_encoder.pkl")
     return model, encoder
-# changes made
-model = load_model("emotion_model_filtered_final.h5", compile=False)
 
-#File upload
+model, le = load_artifacts()
+
+# File upload
 uploaded_file = st.file_uploader("Choose a WAV file", type="wav")
 
 if uploaded_file is not None:
