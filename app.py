@@ -15,8 +15,8 @@ def load_artifacts():
     model = load_model("emotion_model_filtered_final.h5")
     encoder = joblib.load("label_encoder.pkl")
     return model, encoder
-
-model, le = load_artifacts()
+# changes made
+model = load_model("emotion_model_filtered_final.h5", compile=False)
 
 #File upload
 uploaded_file = st.file_uploader("Choose a WAV file", type="wav")
